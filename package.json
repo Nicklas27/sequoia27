@@ -1,0 +1,55 @@
+{
+  "name": "sequioa27-studio",
+  "version": "1.0.0",
+  "description": "Daily project tracker — S27",
+  "author": "sequioa27",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win --publish never",
+    "build:mac": "electron-builder --mac --publish never",
+    "build:all": "electron-builder --win --mac --publish never"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8",
+    "rcedit": "^5.0.2"
+  },
+  "build": {
+    "appId": "com.s27.studio",
+    "productName": "S27",
+    "copyright": "sequioa27",
+    "directories": {
+      "output": "dist",
+      "buildResources": "app"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "app/icon.ico"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
+      "icon": "app/icon.png",
+      "category": "public.app-category.productivity"
+    }
+  }
+}
